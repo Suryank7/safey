@@ -10,10 +10,12 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 const port = process.env.PORT || 4000
 connectDB();
+//allow frontend urls without cors issue
+const allowedOrigins = ['http://localhost:5173']
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true }));
+app.use(cors({origin: allowedOrigins,  credentials: true }));
 
 
 //API Endpoints
